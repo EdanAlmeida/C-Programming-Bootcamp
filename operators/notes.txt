@@ -1,0 +1,260 @@
+
+@ARITHMETIC OPERATORS:
+
+    # Binary Operators -> operand 1 + operand 2 == result (a+b = c)
+        - % -> could be used only with integers;
+    
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int a, b, c;
+
+    printf("Enter 'A' operand (int): ");
+    scanf("%d", &a);
+
+    printf("Enter 'B' operand (int): ");
+    scanf("%d", &b);
+    printf("\n");
+
+    c = a + b;
+
+    printf("Result: %d\n", c);
+
+    c = a % b;
+
+    printf("Result: %d\n", c);
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+@INCREMENT AND DECREMENT OPERATORS:
+
+    # Unary Operators -> they work with just one operand (b = a)[++ / --]
+        - Post-increment -> b = a++;
+        - Pre-increment -> b = ++a;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    
+    int a, b;
+
+    a = 0;
+    b = a++;
+
+    printf("After postincrement:\n");
+    printf("a: %d\n", a);
+    printf("b: %d\n", b);
+
+    a = 0;
+    b = ++a;
+
+    printf("After preincrement:\n");
+    printf("a: %d\n", a);
+    printf("b: %d\n", b);
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+
+
+@RELATIONAL OPERATORS:
+    # A [relation] B
+        - == , != , > , < , >= , <=
+        - If we compare two characters, the compiler considers the alphabetical order;
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    
+    int a, b;
+
+    printf("Enter operand 'A' (int): ");
+    scanf("%d", &a);
+
+    printf("Enter operand 'B' (int): ");
+    scanf("%d", &b);
+
+    printf("A == B --> %d\n", a == b);
+    printf("A != B --> %d\n", a != b);
+    printf("A > B --> %d\n", a > b);
+    printf("A < B --> %d\n", a < b);
+    printf("A >= B --> %d\n", a >= b);
+    printf("A <= B --> %d\n", a <= b);
+
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+
+@LOGICAL OPERATORS:
+    - && -> and
+    - || -> or
+    - ! -> not
+
+    # Venn Diagrams.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+int main(){
+    
+    bool x, y;
+
+    x = 0;
+    y = 0;
+    printf("| %d | %d | %5d | %5d | %4d | \n", x, y, x && y, x || y, !x);
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+
+
+@BITWISE OPERATORS:
+    # Raw Bits Manipulation
+        - Embedded C Programming;
+        - Telecommunications Software Engeneering;
+        - Device Drivers.
+    
+    #BitWise Operators:
+        - &         Bitwise AND;
+        - |         Bitwise OR;
+        - ^         Bitwise XOR;
+        - ~         Bitwise complement;
+        - <<        Shift left;
+        - >>        Shift right;
+    
+    # Logical: boolean operation on the whole number;
+    # Bitwise: boolean operation on each raw bit (bit by bit).
+
+    OBS -> ESTUDAR MELHOR ESSA PARTE, MUITO COMPLICADO!
+
+    #BitMasks -> ????????????????????????? :/
+    #Bit Manipulation -> ????????????????????????? :/
+
+
+
+@ASSIGNMENT OPERATORS:
+    # used to assign a value to a variable;
+        - temperature = 75;
+                - assignment (=).
+
+        # x = x + 15;   ==   x += 15; [same thing]
+
+            * += (a = a + b)    [a += b]
+            * -+
+            * *=
+            * /=
+            * %=
+        
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+int main(){
+    
+    int a, b = 3;
+
+    printf("b = %d\n", b);
+
+    a = b;
+
+    printf("a = %d\n", a);
+
+    a += b;
+    printf("a = %d\n", a);
+
+    a -= b;
+    printf("a = %d\n", a);
+
+    a *= b;
+    printf("a = %d\n", a);
+
+    a /= b;
+    printf("a = %d\n", a);
+
+    a %= b;
+    printf("a = %d\n", a);
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+
+
+
+@THE SIZEOF OPERATOR:
+    # returns the size of (something) in bytes;
+    # known in compile time;
+    # result is an integer constant;
+    # smth can be a variable, a basic, or a derived data type, an expression.
+
+        - size_t size = sizeof(int);
+    # this improve portability;
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+int main(){
+    
+    int variable = 0;
+
+    printf("%llu\n", sizeof(variable)); //4
+    printf("%llu\n", sizeof(int)); //4
+    printf("%llu\n", sizeof(long int)); //8
+    printf("%llu\n", sizeof(long long int)); //8
+    printf("%llu\n", sizeof(char)); //1
+    printf("%llu\n", sizeof(int16_t)); //2
+    printf("%llu\n", sizeof(int32_t)); //4
+    printf("%llu\n", sizeof(int64_t)); //8
+    printf("%llu\n", sizeof(123 && 456)); //4
+    printf("%llu\n", sizeof(123LL && 456LL)); //4
+
+    printf("\n\n=== Monster Mash ===\n\n");
+    return EXIT_SUCCESS;
+}
+
+
+
+
+@CASTING AND IMPLICIT CONVERSIONS:
+    # Type conversion: 
+    # C is a strongly-typed programming language.
+
+
+
+
+@SUMMARY AND OTHER OPERATORS:
+    # summary of what we have seen so far. Regarding operators, of course!
+
+
+
+
+@OPERATORS PRECEDENCE:
+    # The order rules:
+        - 1st -> Postfix;   ()  []    ->    .       ++  --
+        - 2nd -> Unary;     
+
+        EX -> int result = 12 + 34 / 2
+                    34 / 2 = 17 + 12 == 29
+
+
+
+
+

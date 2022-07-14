@@ -1,0 +1,188 @@
+Section 4 - notes
+
+@ VARIABLES AND CONSTANTS
+
+# small objects -> bits (logical unit a computer work with); [0 / 1]
+
+# A sequence of 8 bits == byte -> a sequence of bytes (4 or 8) depending on the architecture == word;
+
+# Each word is associate with an address;
+
+#Each variable is a containter == representeation of a memory location; 
+
+# int (data type) girls (identifier) = 12; (literal).
+
+# C is a strongly typed language.
+
+# Snake case -> my_fancy_variable, total_width
+
+# Camel case -> myFancyVariable, totalWidth
+
+# Always choose meaningful names.
+
+
+"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." 'Martin Fowler'
+
+#What is a data type?
+    - it's a bundle of compile-time properties for an object.
+        * Memory size and alignment
+        * set of valid values/range
+        * set of permitted operations
+
+
+
+@ NUMERAL SYSTEM
+
+# Integers -> ..., -1, 0, 1, ...
+
+    # Base 10 numeral system -> Ten symbols. (1234 == 1*10^4 + 2*10^2 + 3*10^1 + 4*10^0 == 1000 + 200 + 30 + 4)
+
+    #Binary system == 0,1
+
+        - 0b1001 == 1*2^3 + 0*2^2 + 0*2^1 + 1*1^0 == 8 + 1 = 9
+
+    # Can we represent an infinitely large number? 
+        - No (we only have a limited numer of bits...)
+
+        * Overflow:
+            - 8 bit
+            - Minimum value: 0b00000000 = 0
+
+            - Maximum value: 0b11111111 = 255
+
+            - 255 + 1 == 0 (overflow)
+
+    # Two's Complement:
+        - * bit signed
+        - Maximum value:
+             0b01111111 = 127
+
+        - Minimum value:
+            0b10000000 - -128
+
+# Real Number -> ..., -3.14, 1.41, 6.28, ...
+
+    # Scientific Notation
+        - convenient with too big or too small numbers
+        - Used by scientists, mathematicians, and engineers.
+            0.1234 = 1234 * 10^-4
+
+        Floating point - IEEE 754
+            0           01111101        100000000000000000000000    = 0.375
+          signed        exponent               fraction
+
+
+                                        significant bits        decimal digits          Exponent bits           Decimal max exponent
+    #Binary32 == Single precision              24                    7.2                    8                           38.2
+    #Binary64 == Double Precision              53                    15.9                   11                          307.9
+
+
+
+
+
+@INTEGERS
+
+    int girls = 12;
+
+# int <> unsigned int
+    - int -> can be more or less than zero;
+    - unsigned int -> can only be more or equal to zero.
+
+    #Examples:
+        - int temperatureFahrenheit = -10;
+        - unsigned temperatureKelvin = 250U; [U == unsigned]
+
+#Bytes used in memory:
+    - short int -> usually 2
+    - int -> at least 2, usually 4
+    - long int -> at least 4, usually 8
+    - long log int -> at least 8
+
+    # To avoid misunderstandings, we should use == #include <stdint.h>
+
+    # Format specifiers
+        #include <stdint.h>
+
+        int main(){
+            int status = -1;
+            printf("status value: %d\n", status);
+            return 0;
+        }
+
+            - %hd -> short int;
+            - %d -> int;
+            - %ld -> long int;
+            - %lld -> long long int;
+            - %hu -> unsigned short int;
+            - %u -> unsigned int;
+            - %lu -> unsigned long int;
+            - %llu -> unsigned long long int;
+
+            - %[width]d -> used to put space before the variable, to align rows.
+
+
+        #include <stdint.h>
+
+        int main(){
+            int status = -1;
+            printf("status value:\n");
+            printf("%6d\n", status);
+            printf("123456\n");
+            return 0;
+        }
+
+
+@FLOATING POINTS
+# float -> not very precise; (32 bits)
+# double -> very precise, smaller or bigger numbers. (64 bits)
+
+# %f e.g. 3.14
+
+# %e e.g. 314E-2   (3.14 * 10^2) [314E-2]
+ 
+    printf("%[width][.precision]specifier")
+
+
+
+@CHARACTERS
+# char c = 'A';
+    - 1 byte -> 8 bit signed int
+    - Range: -128 - + 127
+    - ASCII characters
+
+    - Escape sequences;
+    - %c;
+
+
+
+
+@BOOLEANS
+# true or false;
+    - false = 0
+    - true <> 0
+
+    # Before C99:
+        int main(){
+            int a = 0; //false
+            int b = 1; //true
+
+            return 0;
+        }
+
+    
+    # Now:
+        #include <stdbool.h>
+
+        int mains(){
+            bool a = false;
+            bool b = true;
+
+            return 0;
+        }
+
+
+
+
+
+@
+
