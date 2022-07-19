@@ -1,0 +1,36 @@
+@IF ELSE STATEMENT:
+    # if (condition) instruction;
+        - if condition != 0 -> instruction executed.
+        - if condition = 0 -> instruction skipped.
+        - condition can be a variable, constant, expression, function call.
+
+#include <stdio.h>
+
+int main(){
+    int a = 9;
+    int b = 3;
+    
+    if (a > b){
+        printf("Condition is true!");
+        print("\n");
+    }
+    return 0;
+}
+
+
+
+@SWITCH STATEMENT:
+    # switch (expression){
+        case constant_1:
+            /*code case 1*/
+            break;
+
+        case constant_N:
+            /*code case N*/
+            break;
+        
+        default:
+            /*default code*/
+            break;
+    }
+
