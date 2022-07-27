@@ -2,12 +2,23 @@
 #include <stdlib.h>
 
 int main(){
-    int iterations = 5;
+
+    int input, accumulator = 0;
+    const int ITERATIONS = 5;
     
-    while (iterations > 0){
-        printf("i: %d\n", iterations);
-        iterations --;
+    for (int i = 0; i < ITERATIONS; i++)
+    {
+        printf("Enter an integer (> 0): ");
+        scanf("%d", & input);
+
+        if (input < 0){
+            continue;
+        }
+
+        accumulator += input;
     }
     
-    return 0;
+    printf("\nAccumulator: %d\n", accumulator);
+
+    return EXIT_SUCCESS;
 }
