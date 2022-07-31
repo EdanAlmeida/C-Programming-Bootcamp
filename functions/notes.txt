@@ -1,0 +1,149 @@
+FUNCTIONS:
+    - How functions work;
+    - Create functions;
+    - Scope Rules;
+    - Local and Global.
+
+
+@HOW FUNCTIONS WORK:
+    # printf(); -> is a function. (<stdio.h>)
+    - We use a function to do smth.
+    - It's a block of code that performs a specific task;
+    - We can invoke that block of code by making a 'function call';
+    - A function can be used to execute an action;
+    - A function can be used to obtain a result [e.g. letter = tolower('A')];
+    - A function can be used to change something, e.g. increment(&count);
+    - Functions allow you to encapsulate pieces of code, hiding them behind the function name;
+
+    # Keep it simple and focus on what matters:
+
+    # Why use functions?
+    - DIving problems into smaller chuncks;
+    - Simplify a problem with the black box approach (improves the readability of the code);
+    - Avoid code duplications;
+    - Only one place to make changes;
+    - Isolating code blocks means isolating bugs;
+    - Independent development, testing and debugging;
+    - Allow the reuse of already written code;
+
+
+
+@CREATING FUNCTIONS:
+    int main()
+    {
+        return 0; || return EXIT_SUCESS; [if <stdlib.h> included] //return an int [this justify the name int in the beginning of the code]
+    }
+
+    # the main function in cis the entry point of the program [program's front door!].
+
+    # In embedded systems we have the bootloader [setting everything before starting the program itself.]
+
+    # Function:
+
+    return_type function_name(type1 id1, type2 id2, ...)
+    {
+        /*function body*/
+        return expression;
+    }
+
+    - Parameter list can be empty;
+    - Each function must have a different name [in c it not possible to use function overload <> java and c++] == compile error;
+    - If the return type os 'void', the function does not return any values;
+    - Expression automatically casted to return_type;
+
+
+
+@FUNCTIONS CALL:
+    # function_name(arg1, arg2, ...);
+
+    - Function call must match ṕarameter list and return type;
+    - Same order of parameters;
+    - Return value can be ignored;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int sum(int a, int b)
+{
+    int result = a + b;
+    return result;
+}
+
+
+void printStudents(int students)
+{
+    printf("students: %d\n", students);
+}
+
+int main()
+{
+    int students, girls = 12, boys = 9;
+    students = sum(girls, boys);
+    printStudents(students);
+    return 0;
+}
+
+
+    # Function declaration:
+        - return_type function_name(parameter list);
+        - this tells the compiler how to call the function;
+        - Optional, but useful for:
+            - exposing some functions in a header file;
+            - calling a function before defining it;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum(int a , int b);
+void printStudents(int students); /*like on arduino*/
+
+
+int main()
+{
+    int students, girls = 12, boys = 9;
+    students = sum(girls, boys);
+    printStudents(students);
+    return 0;
+}
+
+
+int sum(int a, int b)
+{
+    int result = a + b;
+    return result;
+}
+
+
+void printStudents(int students)
+{
+    printf("students: %d\n", students);
+}
+
+
+    # Naming Rules:
+        - Only letters(Upper and Lower), digits (0-9), and underscore (_);
+        - The first character can't be a digit;
+        - Avoid leading underscore (it had better to avoid);
+        - Cannot use reserved words;
+        - Cannot use the same name as a previously declared function;
+        - Camel case is a good option too;
+        - Always choose meaningful names.
+
+
+
+@SCOPE RULES:
+    # Visibility:
+    
+    - File scope: The whole source file [visibility extended to the whole file].
+    - Block scope: Only visible in the block [visibility limited to the function].
+
+    - Local variables: inside the functions [block scopes].
+    - Global variables: File scope.
+    - Parameters: inside the functions [block scopes].
+
+    - When possible, it is good to avoid global variables.
+
+
+    - A local variable hides a global one with the same name [useful].
+    - A block variable hides a local and global variables with the same name.
